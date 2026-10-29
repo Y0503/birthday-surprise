@@ -6,163 +6,114 @@
 <title>今年的生日交給命運安排 ♡</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
-html,body{
-  margin:0;
-  padding:0;
-  min-height:100%;
-}
+*{box-sizing:border-box}
 
 body{
+  margin:0;
   min-height:100vh;
-  padding:22px;
+  background:radial-gradient(circle at top,#3a2d1d,#12100d 40%,#050505 100%);
+  color:#e7c98a;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:
-    radial-gradient(circle at top,#3a2e1f 0%,#17130f 32%,#080809 75%);
-  color:#ead6a3;
-  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",sans-serif;
+  padding:20px;
 }
 
-main{
+.card{
   width:100%;
-  max-width:430px;
-  min-height:560px;
-  padding:38px 24px;
-  background:linear-gradient(145deg,#211d18,#0d0d0f);
-  border:1px solid #8c7448;
-  border-radius:26px;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.65),
-    inset 0 0 35px rgba(211,177,104,.05);
+  max-width:420px;
+  background:linear-gradient(145deg,#1b1814,#0d0d0d);
+  border:1px solid #8b7245;
+  border-radius:28px;
+  padding:36px 22px;
   text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
-small{
+.small{
   font-size:10px;
   letter-spacing:3px;
-  color:#b49a68;
+  color:#b59a68;
+}
+
+.icon{
+  font-size:52px;
+  margin:28px 0;
+}
+
+h1,h2{
+  font-weight:500;
 }
 
 h1{
-  font-size:28px;
-  line-height:1.55;
-  font-weight:500;
-  margin:18px 0;
+  font-size:27px;
+  line-height:1.6;
 }
 
 h2{
   font-size:22px;
-  line-height:1.5;
-  font-weight:500;
 }
 
 p{
+  color:#b7a98c;
+  line-height:1.9;
   font-size:14px;
-  line-height:2;
-  color:#b8aa8e;
-}
-
-.emblem{
-  font-size:54px;
-  margin:28px 0 16px;
-}
-
-.rule{
-  height:1px;
-  margin:24px 0;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #c3a365,
-    transparent
-  );
 }
 
 button{
   width:100%;
+  border:none;
   font:inherit;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
 }
 
-.primary{
-  margin-top:30px;
+.main-btn{
+  margin-top:26px;
   padding:16px;
-  border:1px solid #e1c27f;
-  border-radius:40px;
-  background:linear-gradient(
-    110deg,
-    #9a763c,
-    #e0c783,
-    #9a763c
-  );
-  color:#201810;
+  border-radius:30px;
+  background:linear-gradient(110deg,#9c783e,#e1c77e,#9c783e);
+  color:#1c150d;
   font-weight:700;
-  letter-spacing:1px;
 }
 
 .choice{
-  display:block;
-  margin:17px 0;
-  padding:25px 12px;
-  border:1px solid #846c43;
+  margin:14px 0;
+  padding:22px 12px;
   border-radius:16px;
-  background:linear-gradient(145deg,#29241e,#131315);
-  color:#e6c98e;
-}
-
-.choice:active{
-  transform:scale(.98);
-  background:#4a3922;
-}
-
-.choice span{
-  display:block;
-  font-size:38px;
-  margin-bottom:12px;
+  border:1px solid #7f6841;
+  background:#171512;
+  color:#e7c98a;
 }
 
 .choice strong{
+  display:block;
   font-size:19px;
-  letter-spacing:2px;
+  margin-top:8px;
 }
 
 .hidden{
   display:none;
 }
 
-.result{
-  margin:28px 0;
-  padding:22px 10px;
-  border:1px solid #8c7448;
-  border-radius:17px;
-  background:rgba(195,163,101,.05);
-}
-
-.note{
-  font-size:12px;
-  color:#91836e;
+.result-box{
+  border:1px solid #7f6841;
+  border-radius:18px;
+  padding:20px;
+  margin:24px 0;
 }
 </style>
 </head>
 
 <body>
 
-<main>
+<div class="card">
 
-<small>EXCLUSIVE BIRTHDAY INVITATION</small>
+<div class="small">EXCLUSIVE BIRTHDAY INVITATION</div>
 
 <!-- 首頁 -->
-<section id="welcome">
+<section id="home">
 
-  <div class="emblem">♛</div>
-
-  <div class="rule"></div>
+  <div class="icon">♛</div>
 
   <h1>
     今年的生日<br>
@@ -174,9 +125,7 @@ button{
     命運，將由你親自選擇。
   </p>
 
-  <button
-    class="primary"
-    onclick="showSection('first')">
+  <button class="main-btn" onclick="show('first')">
     開啟命運邀請函 ✦
   </button>
 
@@ -186,114 +135,78 @@ button{
 <!-- 第一關 -->
 <section id="first" class="hidden">
 
-  <div class="emblem">✦</div>
+  <div class="icon">✦</div>
 
   <h2>第一章 · 命運的邀請</h2>
 
   <p>
-    眼前有兩封邀請函<br>
-    跟隨直覺，選擇你的命運。
+    跟隨直覺<br>
+    選擇一封屬於你的邀請。
   </p>
 
-  <button
-    class="choice"
-    onclick="selectFirst('月夜邀約','local')">
-
-    <span>☾</span>
+  <button class="choice" onclick="chooseFirst('月夜邀約','local')">
+    ☾
     <strong>月夜邀約</strong>
-
   </button>
 
-
-  <button
-    class="choice"
-    onclick="selectFirst('星辰之約','far')">
-
-    <span>✧</span>
+  <button class="choice" onclick="chooseFirst('星辰之約','far')">
+    ✧
     <strong>星辰之約</strong>
-
   </button>
-
-  <p class="note">
-    DESTINY IS IN YOUR HANDS
-  </p>
 
 </section>
 
 
-<!-- 國內第二關 -->
+<!-- 國內 -->
 <section id="local" class="hidden">
 
-  <div class="emblem">♕</div>
+  <div class="icon">♕</div>
 
   <h2>第二章 · 神祕篇章</h2>
 
   <p>
-    你的命運已悄悄指引方向<br>
-    現在，選擇下一份驚喜。
+    命運已悄悄指引方向<br>
+    再選擇下一份驚喜。
   </p>
 
-  <button
-    class="choice"
-    onclick="finishChoice('午夜篇章')">
-
-    <span>✦</span>
+  <button class="choice" onclick="finish('午夜篇章')">
+    ✦
     <strong>午夜篇章</strong>
-
   </button>
 
-
-  <button
-    class="choice"
-    onclick="finishChoice('金色密令')">
-
-    <span>♛</span>
+  <button class="choice" onclick="finish('金色密令')">
+    ♛
     <strong>金色密令</strong>
-
   </button>
 
 </section>
 
 
-<!-- 國外第二關 -->
+<!-- 國外 -->
 <section id="far" class="hidden">
 
-  <div class="emblem">✧</div>
+  <div class="icon">✧</div>
 
   <h2>第二章 · 遠方密令</h2>
 
   <p>
     命運已把你帶向更遠的地方<br>
-    現在，再選擇一封專屬於你的邀請。
+    選擇下一封邀請。
   </p>
 
-  <button
-    class="choice"
-    onclick="finishChoice('銀月之都')">
-
-    <span>☾</span>
+  <button class="choice" onclick="finish('銀月之都')">
+    ☾
     <strong>銀月之都</strong>
-
   </button>
 
-
-  <button
-    class="choice"
-    onclick="finishChoice('深藍篇章')">
-
-    <span>✦</span>
+  <button class="choice" onclick="finish('深藍篇章')">
+    ✦
     <strong>深藍篇章</strong>
-
   </button>
 
-
-  <button
-    class="choice"
-    onclick="finishChoice('琥珀夜航')">
-
-    <span>◇</span>
+  <button class="choice" onclick="finish('琥珀夜航')">
+    ◇
     <strong>琥珀夜航</strong>
-
   </button>
 
 </section>
@@ -302,42 +215,32 @@ button{
 <!-- 結果 -->
 <section id="result" class="hidden">
 
-  <div class="emblem">♛</div>
+  <div class="icon">♛</div>
 
   <h2>命運已選定</h2>
 
-  <div class="rule"></div>
+  <div class="result-box">
 
-  <div class="result">
+    <p>第一關</p>
+    <h2 id="r1"></h2>
 
-    <p>YOUR DESTINY</p>
-    <h2 id="answer1"></h2>
-
-    <div class="rule"></div>
-
-    <p>YOUR SECRET CHAPTER</p>
-    <h2 id="answer2"></h2>
+    <p>第二關</p>
+    <h2 id="r2"></h2>
 
   </div>
 
   <p>
     你的選擇，我已收到。<br>
-    接下來，就把一切交給我吧 ♡
+    接下來就交給我吧 ♡
   </p>
 
-  <button
-    class="primary"
-    onclick="shareResult()">
+  <button class="main-btn" onclick="shareResult()">
     將命運傳給我 ♡
   </button>
 
-  <p class="note">
-    將結果分享給我，等待生日驚喜。
-  </p>
-
 </section>
 
-</main>
+</div>
 
 
 <script>
@@ -345,98 +248,42 @@ button{
 let firstChoice = "";
 let secondChoice = "";
 
-function showSection(id){
-
-  const sections =
-    document.querySelectorAll("section");
-
-  sections.forEach(function(section){
-    section.classList.add("hidden");
+function show(id){
+  document.querySelectorAll("section").forEach(function(sec){
+    sec.classList.add("hidden");
   });
 
-  const target =
-    document.getElementById(id);
-
-  if(target){
-    target.classList.remove("hidden");
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+  document.getElementById(id).classList.remove("hidden");
 }
 
-
-function selectFirst(name,branch){
-
+function chooseFirst(name,target){
   firstChoice = name;
-
-  showSection(branch);
-
+  show(target);
 }
 
-
-function finishChoice(name){
-
+function finish(name){
   secondChoice = name;
 
-  document.getElementById("answer1").textContent =
-    firstChoice;
+  document.getElementById("r1").textContent = firstChoice;
+  document.getElementById("r2").textContent = secondChoice;
 
-  document.getElementById("answer2").textContent =
-    secondChoice;
-
-  showSection("result");
-
+  show("result");
 }
 
+function shareResult(){
 
-async function shareResult(){
-
-  const message =
-    "♛ 生日命運抽籤 ♛\n" +
-    "第一關：" + firstChoice + "\n" +
-    "第二關：" + secondChoice + "\n" +
-    "我的生日就交給你了 ♡";
+  const text =
+  "♛ 生日命運抽籤 ♛\n"+
+  "第一關："+firstChoice+"\n"+
+  "第二關："+secondChoice+"\n"+
+  "我的生日就交給你了 ♡";
 
   if(navigator.share){
-
-    try{
-
-      await navigator.share({
-        text:message
-      });
-
-      return;
-
-    }catch(error){
-
-      if(error.name === "AbortError"){
-        return;
-      }
-
-    }
-
+    navigator.share({text:text});
+  }else{
+    navigator.clipboard.writeText(text);
+    alert("已複製結果，貼到 LINE 傳給我 ♡");
   }
-
-  try{
-
-    await navigator.clipboard.writeText(message);
-
-    alert(
-      "已複製結果，貼到 LINE 傳給我 ♡"
-    );
-
-  }catch(error){
-
-    prompt(
-      "請複製結果傳給我：",
-      message
-    );
-
-  }
-
 }
 
 </script>
