@@ -210,23 +210,23 @@ button{
   </p>
 
   <button class="choice"
-  onclick="finish('城市密令')"
+  onclick="finish('午夜篇章')">
 
-    <span>🥂</span>
+    <span>✦</span>
 
-    <strong>城市密令</strong>
+    <strong>午夜篇章</strong>
 
   </button>
 
 
   <button class="choice"
-onclick="finish('燭光之約')">
+  onclick="finish('金色密令')">
 
-  <span>🗝️</span>
+    <span>♛</span>
 
-  <strong>燭光之約</strong>
+    <strong>金色密令</strong>
 
-</button>
+  </button>
 
 </section>
 
@@ -301,7 +301,6 @@ onclick="finish('燭光之約')">
 let first="";
 let second="";
 
-
 function go(id){
 
   document
@@ -318,7 +317,6 @@ function go(id){
 
 }
 
-
 function selectFirst(name,branch){
 
   first=name;
@@ -326,7 +324,6 @@ function selectFirst(name,branch){
   go(branch);
 
 }
-
 
 function finish(name){
 
@@ -343,7 +340,6 @@ function finish(name){
   go("result");
 
 }
-
 
 async function shareResult(){
 
@@ -372,7 +368,6 @@ async function shareResult(){
     }
 
   }
-
 
   try{
 
