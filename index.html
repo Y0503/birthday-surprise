@@ -1,3 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今年的生日交給命運安排 ♡</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+}
+
+body{
+  min-height:100vh;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(circle at top,#3a2e1f 0%,#17130f 32%,#080809 75%);
+  color:#ead6a3;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",sans-serif;
+}
+
+main{
+  width:100%;
+  max-width:430px;
+  min-height:560px;
+  padding:38px 24px;
+  background:linear-gradient(145deg,#211d18,#0d0d0f);
+  border:1px solid #8c7448;
+  border-radius:26px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.65),
+    inset 0 0 35px rgba(211,177,104,.05);
+  text-align:center;
+}
+
+small{
+  font-size:10px;
+  letter-spacing:3px;
+  color:#b49a68;
+}
+
+h1{
+  font-size:28px;
+  line-height:1.55;
+  font-weight:500;
+  margin:18px 0;
+}
+
+h2{
+  font-size:22px;
+  line-height:1.5;
+  font-weight:500;
+}
+
+p{
+  font-size:14px;
+  line-height:2;
+  color:#b8aa8e;
+}
+
+.emblem{
+  font-size:54px;
+  margin:28px 0 16px;
+}
+
+.rule{
+  height:1px;
+  margin:24px 0;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #c3a365,
+    transparent
+  );
+}
+
+button{
+  width:100%;
+  font:inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.primary{
+  margin-top:30px;
+  padding:16px;
+  border:1px solid #e1c27f;
+  border-radius:40px;
+  background:linear-gradient(
+    110deg,
+    #9a763c,
+    #e0c783,
+    #9a763c
+  );
+  color:#201810;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.choice{
+  display:block;
+  margin:17px 0;
+  padding:25px 12px;
+  border:1px solid #846c43;
+  border-radius:16px;
+  background:linear-gradient(145deg,#29241e,#131315);
+  color:#e6c98e;
+}
+
+.choice:active{
+  transform:scale(.98);
+  background:#4a3922;
+}
+
+.choice span{
+  display:block;
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.choice strong{
+  font-size:19px;
+  letter-spacing:2px;
+}
+
+.hidden{
+  display:none;
+}
+
+.result{
+  margin:28px 0;
+  padding:22px 10px;
+  border:1px solid #8c7448;
+  border-radius:17px;
+  background:rgba(195,163,101,.05);
+}
+
+.note{
+  font-size:12px;
+  color:#91836e;
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<small>EXCLUSIVE BIRTHDAY INVITATION</small>
+
+<!-- 首頁 -->
+<section id="welcome">
+
+  <div class="emblem">♛</div>
+
+  <div class="rule"></div>
+
+  <h1>
+    今年的生日<br>
+    交給命運安排 ♡
+  </h1>
+
+  <p>
+    一場只屬於你的神祕邀約<br>
+    命運，將由你親自選擇。
+  </p>
+
+  <button
+    class="primary"
+    onclick="showSection('first')">
+    開啟命運邀請函 ✦
+  </button>
+
+</section>
+
+
+<!-- 第一關 -->
+<section id="first" class="hidden">
+
+  <div class="emblem">✦</div>
+
+  <h2>第一章 · 命運的邀請</h2>
+
+  <p>
+    眼前有兩封邀請函<br>
+    跟隨直覺，選擇你的命運。
+  </p>
+
+  <button
+    class="choice"
+    onclick="selectFirst('月夜邀約','local')">
+
+    <span>☾</span>
+    <strong>月夜邀約</strong>
+
+  </button>
+
+
+  <button
+    class="choice"
+    onclick="selectFirst('星辰之約','far')">
+
+    <span>✧</span>
+    <strong>星辰之約</strong>
+
+  </button>
+
+  <p class="note">
+    DESTINY IS IN YOUR HANDS
+  </p>
+
+</section>
+
+
+<!-- 國內第二關 -->
+<section id="local" class="hidden">
+
+  <div class="emblem">♕</div>
+
+  <h2>第二章 · 神祕篇章</h2>
+
+  <p>
+    你的命運已悄悄指引方向<br>
+    現在，選擇下一份驚喜。
+  </p>
+
+  <button
+    class="choice"
+    onclick="finishChoice('午夜篇章')">
+
+    <span>✦</span>
+    <strong>午夜篇章</strong>
+
+  </button>
+
+
+  <button
+    class="choice"
+    onclick="finishChoice('金色密令')">
+
+    <span>♛</span>
+    <strong>金色密令</strong>
+
+  </button>
+
+</section>
+
+
+<!-- 國外第二關 -->
 <section id="far" class="hidden">
 
   <div class="emblem">✧</div>
@@ -9,31 +267,179 @@
     現在，再選擇一封專屬於你的邀請。
   </p>
 
-  <button class="choice"
-  onclick="finish('銀月之都')">
+  <button
+    class="choice"
+    onclick="finishChoice('銀月之都')">
 
     <span>☾</span>
-
     <strong>銀月之都</strong>
 
   </button>
 
-  <button class="choice"
-  onclick="finish('深藍篇章')">
+
+  <button
+    class="choice"
+    onclick="finishChoice('深藍篇章')">
 
     <span>✦</span>
-
     <strong>深藍篇章</strong>
 
   </button>
 
-  <button class="choice"
-  onclick="finish('琥珀夜航')">
+
+  <button
+    class="choice"
+    onclick="finishChoice('琥珀夜航')">
 
     <span>◇</span>
-
     <strong>琥珀夜航</strong>
 
   </button>
 
 </section>
+
+
+<!-- 結果 -->
+<section id="result" class="hidden">
+
+  <div class="emblem">♛</div>
+
+  <h2>命運已選定</h2>
+
+  <div class="rule"></div>
+
+  <div class="result">
+
+    <p>YOUR DESTINY</p>
+    <h2 id="answer1"></h2>
+
+    <div class="rule"></div>
+
+    <p>YOUR SECRET CHAPTER</p>
+    <h2 id="answer2"></h2>
+
+  </div>
+
+  <p>
+    你的選擇，我已收到。<br>
+    接下來，就把一切交給我吧 ♡
+  </p>
+
+  <button
+    class="primary"
+    onclick="shareResult()">
+    將命運傳給我 ♡
+  </button>
+
+  <p class="note">
+    將結果分享給我，等待生日驚喜。
+  </p>
+
+</section>
+
+</main>
+
+
+<script>
+
+let firstChoice = "";
+let secondChoice = "";
+
+function showSection(id){
+
+  const sections =
+    document.querySelectorAll("section");
+
+  sections.forEach(function(section){
+    section.classList.add("hidden");
+  });
+
+  const target =
+    document.getElementById(id);
+
+  if(target){
+    target.classList.remove("hidden");
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+
+function selectFirst(name,branch){
+
+  firstChoice = name;
+
+  showSection(branch);
+
+}
+
+
+function finishChoice(name){
+
+  secondChoice = name;
+
+  document.getElementById("answer1").textContent =
+    firstChoice;
+
+  document.getElementById("answer2").textContent =
+    secondChoice;
+
+  showSection("result");
+
+}
+
+
+async function shareResult(){
+
+  const message =
+    "♛ 生日命運抽籤 ♛\n" +
+    "第一關：" + firstChoice + "\n" +
+    "第二關：" + secondChoice + "\n" +
+    "我的生日就交給你了 ♡";
+
+  if(navigator.share){
+
+    try{
+
+      await navigator.share({
+        text:message
+      });
+
+      return;
+
+    }catch(error){
+
+      if(error.name === "AbortError"){
+        return;
+      }
+
+    }
+
+  }
+
+  try{
+
+    await navigator.clipboard.writeText(message);
+
+    alert(
+      "已複製結果，貼到 LINE 傳給我 ♡"
+    );
+
+  }catch(error){
+
+    prompt(
+      "請複製結果傳給我：",
+      message
+    );
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
