@@ -1,112 +1,401 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>你的生日，交給命運安排 ♡</title>
+<title>今年的生日交給命運安排 ♡</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:linear-gradient(145deg,#f9e9f6,#e9e2ff,#fff2eb);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;color:#493c54;display:grid;place-items:center;padding:22px}
-main{width:100%;max-width:440px;background:#ffffffdd;border-radius:28px;padding:30px 22px;box-shadow:0 15px 45px #78618b22;text-align:center}
-small{letter-spacing:2px;color:#9e8caa;font-size:10px}
-h1{font-size:25px;line-height:1.5}
-h2{font-size:21px}
-p{line-height:1.8;color:#81738c;font-size:14px}
-.emoji{font-size:58px;margin:16px}
-button{font:inherit;cursor:pointer}
-.primary{background:#8e72ad;color:white;border:0;border-radius:30px;padding:15px 20px;width:100%;margin-top:22px;font-weight:bold}
-.choice{display:block;width:100%;padding:20px;margin:12px 0;background:#fff;border:1px solid #e5d8ef;border-radius:18px;color:#574667}
-.choice:active{background:#f4eafa}
-.choice b{font-size:18px}
-.symbol{font-size:35px;display:block;margin-bottom:9px}
-.hidden{display:none}
-.result{background:#f8f0ff;border-radius:20px;padding:23px 12px;margin-top:20px}
-.note{font-size:12px;color:#a493af}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  padding:22px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at top,#3a2e1f 0%,#17130f 30%,#080809 75%);
+  color:#ead6a3;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;
+}
+
+main{
+  width:100%;
+  max-width:430px;
+  min-height:560px;
+  padding:38px 24px;
+  background:linear-gradient(145deg,#211d18,#0d0d0f);
+  border:1px solid #8c7448;
+  border-radius:26px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.65),
+    inset 0 0 35px rgba(211,177,104,.05);
+  text-align:center;
+}
+
+small{
+  font-size:10px;
+  letter-spacing:3px;
+  color:#b49a68;
+}
+
+h1{
+  font-size:28px;
+  line-height:1.55;
+  font-weight:500;
+  margin:18px 0;
+}
+
+h2{
+  font-size:22px;
+  font-weight:500;
+}
+
+p{
+  font-size:14px;
+  line-height:2;
+  color:#b8aa8e;
+}
+
+.emblem{
+  font-size:54px;
+  margin:28px 0 16px;
+}
+
+.rule{
+  height:1px;
+  background:linear-gradient(90deg,transparent,#c3a365,transparent);
+  margin:24px 0;
+}
+
+button{
+  font:inherit;
+  cursor:pointer;
+}
+
+.primary{
+  width:100%;
+  margin-top:30px;
+  padding:16px;
+  border:1px solid #e1c27f;
+  border-radius:40px;
+  background:linear-gradient(110deg,#9a763c,#e0c783,#9a763c);
+  color:#201810;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.choice{
+  display:block;
+  width:100%;
+  margin:17px 0;
+  padding:25px 12px;
+  border:1px solid #846c43;
+  border-radius:16px;
+  background:linear-gradient(145deg,#29241e,#131315);
+  color:#e6c98e;
+}
+
+.choice:active{
+  background:#4a3922;
+}
+
+.choice span{
+  display:block;
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.choice strong{
+  font-size:19px;
+  letter-spacing:2px;
+}
+
+.hidden{
+  display:none;
+}
+
+.result{
+  border:1px solid #8c7448;
+  padding:22px 10px;
+  border-radius:17px;
+  margin:28px 0;
+  background:rgba(195,163,101,.05);
+}
+
+.note{
+  font-size:12px;
+  color:#91836e;
+}
 </style>
 </head>
+
 <body>
 <main>
-<small>HAPPY BIRTHDAY · SECRET TRIP</small>
+
+<small>EXCLUSIVE BIRTHDAY INVITATION</small>
 
 <section id="welcome">
-<div class="emoji">🎁</div>
-<h1>你的生日<br>交給命運安排 ♡</h1>
-<p>今年的生日，有一份神祕驚喜<br>正等待著你親自開啟。</p>
-<button class="primary" onclick="go('trip')">開啟生日命運 ✨</button>
+
+  <div class="emblem">♛</div>
+
+  <div class="rule"></div>
+
+  <h1>
+    今年的生日<br>
+    交給命運安排 ♡
+  </h1>
+
+  <p>
+    一場只屬於你的神祕邀約<br>
+    命運，將由你親自選擇。
+  </p>
+
+  <button class="primary" onclick="go('first')">
+    開啟命運邀請函 ✦
+  </button>
+
 </section>
 
-<section id="trip" class="hidden">
-<div class="emoji">🌙</div>
-<h2>第一關 · 命運的邀請</h2>
-<p>兩封神祕邀請函<br>憑直覺選擇其中一封。</p>
-<button class="choice" onclick="chooseTrip('月光密語 🌙')">
-<span class="symbol">🌙</span>
-<b>月光密語</b>
-</button>
-<button class="choice" onclick="chooseTrip('星光藏寶圖 ✨')">
-<span class="symbol">✨</span>
-<b>星光藏寶圖</b>
-</button>
-<p class="note">選擇後，就把這份命運交給我吧 ♡</p>
+
+<section id="first" class="hidden">
+
+  <div class="emblem">✦</div>
+
+  <h2>第一章 · 命運的邀請</h2>
+
+  <p>
+    眼前有兩封邀請函<br>
+    跟隨直覺，選擇你的命運。
+  </p>
+
+  <button class="choice"
+  onclick="selectFirst('月夜邀約','local')">
+
+    <span>☾</span>
+
+    <strong>月夜邀約</strong>
+
+  </button>
+
+
+  <button class="choice"
+  onclick="selectFirst('星辰之約','far')">
+
+    <span>✧</span>
+
+    <strong>星辰之約</strong>
+
+  </button>
+
+  <p class="note">
+    DESTINY IS IN YOUR HANDS
+  </p>
+
 </section>
 
-<section id="style" class="hidden">
-<div class="emoji">💌</div>
-<h2>第二關 · 旅行的靈魂</h2>
-<p>這次生日，你最想擁有什麼感覺？</p>
-<button class="choice" onclick="finish('浪漫密語 💗')">💗 浪漫密語</button>
-<button class="choice" onclick="finish('未知冒險 🔥')">🔥 未知冒險</button>
-<button class="choice" onclick="finish('奢華逃跑 🥂')">🥂 奢華逃跑</button>
+
+<section id="local" class="hidden">
+
+  <div class="emblem">♕</div>
+
+  <h2>第二章 · 神祕篇章</h2>
+
+  <p>
+    你的命運已悄悄指引方向<br>
+    現在，選擇下一份驚喜。
+  </p>
+
+  <button class="choice"
+  onclick="finish('頂級饗宴')">
+
+    <span>🥂</span>
+
+    <strong>頂級饗宴</strong>
+
+  </button>
+
+
+  <button class="choice"
+  onclick="finish('私藏冒險')">
+
+    <span>🗝️</span>
+
+    <strong>私藏冒險</strong>
+
+  </button>
+
 </section>
+
+
+<section id="far" class="hidden">
+
+  <div class="emblem">✧</div>
+
+  <h2>第二章 · 未知的序曲</h2>
+
+  <p>
+    你已開啟一段特別的命運。<br>
+    下一個篇章，暫時封存。<br>
+    所有的驚喜，都將由我揭曉。
+  </p>
+
+  <button class="primary"
+  onclick="finish('神祕篇章待揭曉')">
+
+    封存命運 ✦
+
+  </button>
+
+</section>
+
 
 <section id="result" class="hidden">
-<div class="emoji">🎉</div>
-<h1>生日命運已決定！</h1>
-<div class="result">
-<p>你的神祕邀請函</p>
-<h2 id="tripResult"></h2>
-<p>你的旅行風格</p>
-<h2 id="styleResult"></h2>
-</div>
-<p>目的地就先保密吧！<br>今年的生日，我來安排。♡</p>
-<button class="primary" onclick="share()">💌 複製結果傳給我</button>
-<p class="note">複製後貼到 LINE 傳給我喔！</p>
+
+  <div class="emblem">♛</div>
+
+  <h2>命運已選定</h2>
+
+  <div class="rule"></div>
+
+  <div class="result">
+
+    <p>YOUR DESTINY</p>
+
+    <h2 id="answer1"></h2>
+
+    <div class="rule"></div>
+
+    <p>YOUR SECRET CHAPTER</p>
+
+    <h2 id="answer2"></h2>
+
+  </div>
+
+  <p>
+    你的選擇，我已收到。<br>
+    接下來，就把一切交給我吧 ♡
+  </p>
+
+  <button class="primary"
+  onclick="shareResult()">
+
+    將命運傳給我 ♡
+
+  </button>
+
+  <p class="note">
+    將結果分享給我，等待生日驚喜。
+  </p>
+
 </section>
+
 </main>
 
+
 <script>
-let trip="";
-let travelStyle="";
+
+let first="";
+let second="";
+
+
 function go(id){
-document.querySelectorAll("section").forEach(x=>x.classList.add("hidden"));
-document.getElementById(id).classList.remove("hidden");
+
+  document
+  .querySelectorAll("section")
+  .forEach(
+    s=>s.classList.add("hidden")
+  );
+
+  document
+  .getElementById(id)
+  .classList.remove("hidden");
+
+  window.scrollTo(0,0);
+
 }
-function chooseTrip(value){
-trip=value;
-go("style");
+
+
+function selectFirst(name,branch){
+
+  first=name;
+
+  go(branch);
+
 }
-function finish(value){
-travelStyle=value;
-document.getElementById("tripResult").textContent=trip;
-document.getElementById("styleResult").textContent=travelStyle;
-go("result");
+
+
+function finish(name){
+
+  second=name;
+
+  document
+  .getElementById("answer1")
+  .textContent=first;
+
+  document
+  .getElementById("answer2")
+  .textContent=second;
+
+  go("result");
+
 }
-function share(){
-const message="🎂 我的生日旅行命運\n神祕邀請函："+trip+"\n旅行風格："+travelStyle+"\n準備好我的生日驚喜吧！💗";
-if(navigator.share){
-navigator.share({text:message}).catch(()=>copy(message));
-}else{
-copy(message);
+
+
+async function shareResult(){
+
+  const message=
+  "♛ 生日命運抽籤 ♛\n"+
+  "第一關："+first+"\n"+
+  "第二關："+second+"\n"+
+  "我的生日就交給你了 ♡";
+
+  if(navigator.share){
+
+    try{
+
+      await navigator.share({
+        text:message
+      });
+
+      return;
+
+    }catch(e){
+
+      if(e.name==="AbortError"){
+        return;
+      }
+
+    }
+
+  }
+
+
+  try{
+
+    await navigator
+    .clipboard
+    .writeText(message);
+
+    alert(
+      "已複製結果，貼到 LINE 傳給我 ♡"
+    );
+
+  }catch(e){
+
+    prompt(
+      "請複製結果傳給我：",
+      message
+    );
+
+  }
+
 }
-}
-function copy(message){
-if(navigator.clipboard){
-navigator.clipboard.writeText(message).then(()=>alert("已複製！貼到 LINE 傳給我 💗")).catch(()=>prompt("複製以下結果：",message));
-}else{
-prompt("複製以下結果：",message);
-}
-}
+
 </script>
+
 </body>
 </html>
