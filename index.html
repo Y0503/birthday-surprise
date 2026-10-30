@@ -9,148 +9,278 @@
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
 body{
- min-height:100vh;padding:22px;
- display:flex;align-items:center;justify-content:center;
- background:radial-gradient(circle at top,#392b19,#14110e 45%,#050505);
- color:#e7c98a;
- font-family:-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:radial-gradient(circle at top,#382a19,#14110e 45%,#050505);
+  color:#e7c98a;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC",sans-serif;
 }
 .card{
- width:100%;max-width:430px;padding:35px 23px;
- background:linear-gradient(145deg,#211c16,#0d0d0e);
- border:1px solid #967747;border-radius:26px;
- box-shadow:0 20px 60px #0009;text-align:center;
+  width:100%;
+  max-width:440px;
+  padding:35px 22px;
+  background:linear-gradient(145deg,#211c16,#0d0d0e);
+  border:1px solid #967747;
+  border-radius:26px;
+  box-shadow:0 20px 60px #0009;
+  text-align:center;
 }
-.small{font-size:10px;letter-spacing:2px;color:#bca171}
-.icon{font-size:52px;margin:27px 0}
+.small{
+  font-size:10px;
+  letter-spacing:2px;
+  color:#bca171;
+}
+.icon{font-size:50px;margin:25px 0}
 h1{font-size:27px;line-height:1.6;font-weight:500}
 h2{font-size:22px;font-weight:500}
 p{font-size:14px;line-height:1.9;color:#b7a98e}
 .rule{
- height:1px;margin:22px 0;
- background:linear-gradient(90deg,transparent,#bc995d,transparent);
+  height:1px;
+  margin:22px 0;
+  background:linear-gradient(90deg,transparent,#bc995d,transparent);
 }
-button{width:100%;font:inherit;cursor:pointer}
+button{
+  width:100%;
+  font:inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
 .main-btn{
- margin-top:25px;padding:16px;border-radius:30px;
- border:1px solid #e5c887;
- background:linear-gradient(110deg,#9d783d,#e7cc8d,#9d783d);
- color:#241b10;font-weight:700;
+  margin-top:24px;
+  padding:16px;
+  border-radius:30px;
+  border:1px solid #e5c887;
+  background:linear-gradient(110deg,#9d783d,#e7cc8d,#9d783d);
+  color:#241b10;
+  font-weight:700;
 }
+.main-btn:disabled{opacity:.5;cursor:default}
 .choice{
- margin:12px 0;padding:19px 12px;
- border:1px solid #826a43;border-radius:15px;
- background:linear-gradient(145deg,#29231b,#121212);
- color:#e7c98a;
+  margin:12px 0;
+  padding:20px 12px;
+  border:1px solid #826a43;
+  border-radius:15px;
+  background:linear-gradient(145deg,#29231b,#121212);
+  color:#e7c98a;
 }
 .choice:active{background:#4a3923}
-.choice span{display:block;font-size:29px;margin-bottom:7px}
+.choice span{
+  display:block;
+  font-size:30px;
+  margin-bottom:7px;
+}
 .choice strong{font-size:18px;letter-spacing:2px}
 .hidden{display:none!important}
 .result-box{
- border:1px solid #826a43;border-radius:18px;
- padding:20px 12px;margin:23px 0;
- background:#d5b56c0a;
+  border:1px solid #826a43;
+  border-radius:18px;
+  padding:20px 12px;
+  margin:23px 0;
+  background:rgba(213,181,108,.04);
 }
 .note{font-size:12px;color:#95846b}
+.back-btn{
+  background:none;
+  border:none;
+  color:#bba477;
+  margin-top:18px;
+  padding:10px;
+}
+
+/* 餐廳轉盤 */
+.wheel-wrap{
+  position:relative;
+  width:min(100%,340px);
+  margin:26px auto;
+  aspect-ratio:1;
+}
+#wheel{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:5px solid #d4ae68;
+  box-shadow:0 0 30px #caa45c45,0 0 0 5px #2c2116;
+  transition:transform 5s cubic-bezier(.12,.72,.13,1);
+}
+.pointer{
+  position:absolute;
+  z-index:5;
+  top:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:17px solid transparent;
+  border-right:17px solid transparent;
+  border-top:34px solid #fff0b4;
+  filter:drop-shadow(0 2px 3px #000);
+}
+.wheel-result{
+  font-size:40px;
+  margin:15px 0;
+}
 </style>
 </head>
 <body>
+
 <main class="card">
 <div class="small">EXCLUSIVE BIRTHDAY INVITATION</div>
 
+<!-- 首頁 -->
 <section id="home">
- <div class="icon">♛</div>
- <div class="rule"></div>
- <h1>今年的生日<br>交給命運安排 ♡</h1>
- <p>一場只屬於你的神祕邀約<br>
- 命運，將由你親自選擇。</p>
- <button class="main-btn" onclick="show('first')">
- 開啟命運邀請函 ✦
- </button>
+  <div class="icon">♛</div>
+  <div class="rule"></div>
+  <h1>今年的生日<br>交給命運安排 ♡</h1>
+  <p>一場只屬於你的神祕邀約<br>
+  命運，將由你親自選擇。</p>
+  <button class="main-btn" onclick="show('first')">
+    開啟命運邀請函 ✦
+  </button>
 </section>
 
+<!-- 第一關 -->
 <section id="first" class="hidden">
- <div class="icon">✦</div>
- <h2>第一章 · 命運的邀請</h2>
- <p>眼前有兩封邀請函<br>跟隨直覺，選擇你的命運。</p>
- <button class="choice" onclick="chooseFirst('月夜邀約','local')">
- <span>☾</span><strong>月夜邀約</strong>
- </button>
- <button class="choice" onclick="chooseFirst('星辰之約','far')">
- <span>✧</span><strong>星辰之約</strong>
- </button>
+  <div class="icon">✦</div>
+  <h2>第一章 · 命運的邀請</h2>
+  <p>眼前有兩封邀請函<br>
+  跟隨直覺，選擇你的命運。</p>
+
+  <button class="choice" onclick="chooseFirst('月夜邀約','local')">
+    <span>☾</span><strong>月夜邀約</strong>
+  </button>
+
+  <button class="choice" onclick="chooseFirst('星辰之約','far')">
+    <span>✧</span><strong>星辰之約</strong>
+  </button>
 </section>
 
+<!-- 國內 -->
 <section id="local" class="hidden">
- <div class="icon">♕</div>
- <h2>第二章 · 神祕篇章</h2>
- <p>命運已悄悄指引方向<br>請選擇下一份驚喜。</p>
- <button class="choice" onclick="chooseLocalTravel()">
- <span>✦</span><strong>午夜篇章</strong>
- </button>
- <button class="choice" onclick="finish('金色密令')">
- <span>♛</span><strong>金色密令</strong>
- </button>
+  <div class="icon">♕</div>
+  <h2>第二章 · 神祕篇章</h2>
+  <p>命運已悄悄指引方向<br>
+  請選擇下一份驚喜。</p>
+
+  <button class="choice" onclick="chooseLocalTravel()">
+    <span>✦</span><strong>午夜篇章</strong>
+  </button>
+
+  <button class="choice" onclick="chooseDinner()">
+    <span>♛</span><strong>金色密令</strong>
+  </button>
 </section>
 
+<!-- 國內旅遊 -->
 <section id="localPlaces" class="hidden">
- <div class="icon">◇</div>
- <h2>第三章 · 隱藏的命運</h2>
- <p>三封尚未開啟的密函<br>哪一封會成為你的生日故事？</p>
- <button class="choice" onclick="finish('晨曦密語')">
- <span>✧</span><strong>晨曦密語</strong>
- </button>
- <button class="choice" onclick="finish('珊瑚之約')">
- <span>♧</span><strong>珊瑚之約</strong>
- </button>
- <button class="choice" onclick="finish('海月篇章')">
- <span>☾</span><strong>海月篇章</strong>
- </button>
+  <div class="icon">◇</div>
+  <h2>第三章 · 隱藏的命運</h2>
+  <p>三封尚未開啟的密函<br>
+  哪一封會成為你的生日故事？</p>
+
+  <button class="choice" onclick="finish('晨曦密語')">
+    <span>✧</span><strong>晨曦密語</strong>
+  </button>
+
+  <button class="choice" onclick="finish('珊瑚之約')">
+    <span>♧</span><strong>珊瑚之約</strong>
+  </button>
+
+  <button class="choice" onclick="finish('海月篇章')">
+    <span>☾</span><strong>海月篇章</strong>
+  </button>
 </section>
 
+<!-- 國外 -->
 <section id="far" class="hidden">
- <div class="icon">✧</div>
- <h2>第二章 · 遠方密令</h2>
- <p>五封神祕邀請函<br>選擇最吸引你的那一封。</p>
- <button class="choice" onclick="finish('琥珀之門')">
- <span>◇</span><strong>琥珀之門</strong>
- </button>
- <button class="choice" onclick="finish('金曜密令')">
- <span>♛</span><strong>金曜密令</strong>
- </button>
- <button class="choice" onclick="finish('深藍篇章')">
- <span>✦</span><strong>深藍篇章</strong>
- </button>
- <button class="choice" onclick="finish('銀月之都')">
- <span>☾</span><strong>銀月之都</strong>
- </button>
- <button class="choice" onclick="finish('蒼穹之境')">
- <span>✧</span><strong>蒼穹之境</strong>
- </button>
+  <div class="icon">✧</div>
+  <h2>第二章 · 遠方密令</h2>
+  <p>五封神祕邀請函<br>
+  選擇最吸引你的那一封。</p>
+
+  <button class="choice" onclick="finish('琥珀之門')">
+    <span>◇</span><strong>琥珀之門</strong>
+  </button>
+
+  <button class="choice" onclick="finish('金曜密令')">
+    <span>♛</span><strong>金曜密令</strong>
+  </button>
+
+  <button class="choice" onclick="finish('深藍篇章')">
+    <span>✦</span><strong>深藍篇章</strong>
+  </button>
+
+  <button class="choice" onclick="finish('銀月之都')">
+    <span>☾</span><strong>銀月之都</strong>
+  </button>
+
+  <button class="choice" onclick="finish('蒼穹之境')">
+    <span>✧</span><strong>蒼穹之境</strong>
+  </button>
 </section>
 
-<section id="result" class="hidden">
- <div class="icon">♛</div>
- <h2>命運已選定</h2>
- <div class="rule"></div>
- <div class="result-box">
-  <p>YOUR DESTINY</p>
-  <h2 id="r1"></h2>
-  <p>YOUR SECRET CHAPTER</p>
-  <h2 id="r2"></h2>
-  <div id="thirdResult" class="hidden">
-   <p>THE FINAL SEAL</p>
-   <h2 id="r3"></h2>
+<!-- 餐廳轉盤 -->
+<section id="dinnerWheel" class="hidden">
+  <div class="icon">♛</div>
+  <h2>第三章 · 命運盛宴</h2>
+  <p>九道神祕的命運之門<br>
+  讓轉盤決定今晚的驚喜 ♡</p>
+
+  <div class="wheel-wrap">
+    <div class="pointer"></div>
+    <canvas id="wheel" width="600" height="600"></canvas>
   </div>
- </div>
- <p>你的選擇，我已收到。<br>
- 接下來，就把一切交給我吧 ♡</p>
- <button class="main-btn" onclick="shareResult()">
- 將命運傳給我 ♡
- </button>
- <p class="note">將結果分享到 LINE，等待生日驚喜。</p>
+
+  <p id="spinStatus">準備好迎接命運了嗎？</p>
+
+  <button id="spinBtn" class="main-btn" onclick="spinWheel()">
+    ✦ 開始轉動命運 ✦
+  </button>
+
+  <div id="spinResult" class="hidden">
+    <p>命運已選定你的專屬圖騰</p>
+    <div id="chosenSymbol" class="wheel-result"></div>
+    <button class="main-btn" onclick="showResult()">
+      查看最終命運 ♡
+    </button>
+  </div>
 </section>
+
+<!-- 最終結果 -->
+<section id="result" class="hidden">
+  <div class="icon">♛</div>
+  <h2>命運已選定</h2>
+  <div class="rule"></div>
+
+  <div class="result-box">
+    <p>YOUR DESTINY</p>
+    <h2 id="r1"></h2>
+
+    <p>YOUR SECRET CHAPTER</p>
+    <h2 id="r2"></h2>
+
+    <div id="thirdResult" class="hidden">
+      <p>THE FINAL SEAL</p>
+      <h2 id="r3"></h2>
+    </div>
+  </div>
+
+  <p>你的選擇，我已收到。<br>
+  接下來，就把一切交給我吧 ♡</p>
+
+  <button class="main-btn" onclick="shareResult()">
+    將命運傳給我 ♡
+  </button>
+
+  <p class="note">將結果分享到 LINE，等待生日驚喜。</p>
+  <button class="back-btn" onclick="restart()">
+    重新開啟命運
+  </button>
+</section>
+
 </main>
 
 <script>
@@ -159,63 +289,192 @@ let secondChoice="";
 let thirdChoice="";
 
 function show(id){
- document.querySelectorAll("section").forEach(function(s){
-  s.classList.add("hidden");
- });
- document.getElementById(id).classList.remove("hidden");
- window.scrollTo(0,0);
+  document.querySelectorAll("section").forEach(s=>{
+    s.classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0,0);
 }
 
 function chooseFirst(name,target){
- firstChoice=name;
- secondChoice="";
- thirdChoice="";
- show(target);
+  firstChoice=name;
+  secondChoice="";
+  thirdChoice="";
+  show(target);
 }
 
 function chooseLocalTravel(){
- secondChoice="午夜篇章";
- show("localPlaces");
+  secondChoice="午夜篇章";
+  show("localPlaces");
+}
+
+function chooseDinner(){
+  secondChoice="金色密令";
+  thirdChoice="";
+  resetWheel();
+  show("dinnerWheel");
 }
 
 function finish(name){
- if(secondChoice==="午夜篇章"){
-  thirdChoice=name;
- }else{
-  secondChoice=name;
-  thirdChoice="";
- }
- document.getElementById("r1").textContent=firstChoice;
- document.getElementById("r2").textContent=secondChoice;
- document.getElementById("r3").textContent=thirdChoice;
- document.getElementById("thirdResult").classList.toggle(
-  "hidden",!thirdChoice
- );
- show("result");
+  if(secondChoice==="午夜篇章"){
+    thirdChoice=name;
+  }else{
+    secondChoice=name;
+    thirdChoice="";
+  }
+  showResult();
 }
 
-async function shareResult(){
- let message="♛ 生日命運抽籤 ♛\n"+
- "第一關："+firstChoice+"\n"+
- "第二關："+secondChoice+"\n";
- if(thirdChoice){
-  message+="第三關："+thirdChoice+"\n";
- }
- message+="我的生日就交給你了 ♡";
- if(navigator.share){
-  try{
-   await navigator.share({text:message});
-   return;
-  }catch(e){
-   if(e.name==="AbortError")return;
+function showResult(){
+  document.getElementById("r1").textContent=firstChoice;
+  document.getElementById("r2").textContent=secondChoice;
+  document.getElementById("r3").textContent=thirdChoice;
+  document.getElementById("thirdResult").classList.toggle(
+    "hidden",!thirdChoice
+  );
+  show("result");
+}
+
+function restart(){
+  firstChoice="";
+  secondChoice="";
+  thirdChoice="";
+  show("home");
+}
+
+/* 9 個圖案，順序就是餐廳對照順序 */
+const symbols=[
+  "🐂","🔥","🥩","🌙","🍜",
+  "🍳","👑","✨","🌲"
+];
+
+const canvas=document.getElementById("wheel");
+const ctx=canvas.getContext("2d");
+const count=symbols.length;
+const slice=Math.PI*2/count;
+let rotation=0;
+let spinning=false;
+
+function drawWheel(){
+  const cx=300,cy=300,r=295;
+  ctx.clearRect(0,0,600,600);
+
+  for(let i=0;i<count;i++){
+    const start=-Math.PI/2-slice/2+i*slice;
+    const end=start+slice;
+
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.arc(cx,cy,r,start,end);
+    ctx.closePath();
+
+    ctx.fillStyle=i%2===0?"#a17c43":"#2a2118";
+    ctx.fill();
+    ctx.strokeStyle="#e7c98a";
+    ctx.lineWidth=3;
+    ctx.stroke();
+
+    const angle=start+slice/2;
+    const x=cx+185*Math.cos(angle);
+    const y=cy+185*Math.sin(angle);
+
+    ctx.font="58px Apple Color Emoji,Segoe UI Emoji,sans-serif";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillText(symbols[i],x,y);
   }
- }
- try{
-  await navigator.clipboard.writeText(message);
-  alert("已複製結果，貼到 LINE 傳給我 ♡");
- }catch(e){
-  prompt("請複製結果傳給我：",message);
- }
+
+  ctx.beginPath();
+  ctx.arc(cx,cy,39,0,Math.PI*2);
+  ctx.fillStyle="#e7c98a";
+  ctx.fill();
+  ctx.strokeStyle="#392b19";
+  ctx.lineWidth=7;
+  ctx.stroke();
+
+  ctx.fillStyle="#241b10";
+  ctx.font="bold 35px serif";
+  ctx.fillText("♛",cx,cy+2);
+}
+
+function resetWheel(){
+  spinning=false;
+  rotation=0;
+  canvas.style.transition="none";
+  canvas.style.transform="rotate(0deg)";
+  document.getElementById("spinBtn").disabled=false;
+  document.getElementById("spinBtn").classList.remove("hidden");
+  document.getElementById("spinResult").classList.add("hidden");
+  document.getElementById("spinStatus").textContent=
+    "準備好迎接命運了嗎？";
+}
+
+function spinWheel(){
+  if(spinning)return;
+  spinning=true;
+
+  const btn=document.getElementById("spinBtn");
+  btn.disabled=true;
+  document.getElementById("spinStatus").textContent=
+    "命運正在轉動中… ✦";
+
+  const selected=Math.floor(Math.random()*count);
+  const fullTurns=360*7;
+  const current=((rotation%360)+360)%360;
+  const target=((360-selected*40)%360+360)%360;
+  const offset=(target-current+360)%360;
+
+  rotation+=fullTurns+offset;
+
+  canvas.style.transition=
+    "transform 5s cubic-bezier(.12,.72,.13,1)";
+
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      canvas.style.transform="rotate("+rotation+"deg)";
+    });
+  });
+
+  setTimeout(()=>{
+    thirdChoice=symbols[selected];
+    document.getElementById("chosenSymbol").textContent=thirdChoice;
+    document.getElementById("spinStatus").textContent=
+      "命運已為你選定 ♡";
+    btn.classList.add("hidden");
+    document.getElementById("spinResult").classList.remove("hidden");
+    spinning=false;
+  },5200);
+}
+
+drawWheel();
+
+async function shareResult(){
+  let message=
+    "♛ 生日命運抽籤 ♛\n"+
+    "第一關："+firstChoice+"\n"+
+    "第二關："+secondChoice+"\n";
+
+  if(thirdChoice){
+    message+="第三關："+thirdChoice+"\n";
+  }
+
+  message+="我的生日就交給你了 ♡";
+
+  if(navigator.share){
+    try{
+      await navigator.share({text:message});
+      return;
+    }catch(e){
+      if(e.name==="AbortError")return;
+    }
+  }
+
+  try{
+    await navigator.clipboard.writeText(message);
+    alert("已複製結果，貼到 LINE 傳給我 ♡");
+  }catch(e){
+    prompt("請複製結果傳給我：",message);
+  }
 }
 </script>
 </body>
